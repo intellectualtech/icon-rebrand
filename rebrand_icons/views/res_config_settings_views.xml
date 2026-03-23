@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_rebrand_custom" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit.rebrand.custom</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_settings_container')]" position="inside">
+                <div class="col-12 col-lg-12 mt-4">
+                    <h2>Custom Per-App Icons (Rebrand Dashboard Tiles)</h2>
+                    <div class="alert alert-info">
+                        <strong>How to use:</strong><br/>
+                        1. Put your PNG icons in <code>rebrand_icons/static/icons/</code><br/>
+                        &nbsp;&nbsp;Examples: sales.png, crm.png, inventory.png, accounting.png, etc.<br/>
+                        2. Edit the mapping in models/res_config_settings.py if needed.<br/>
+                        3. Click the button below.<br/>
+                        4. Hard refresh (Ctrl + Shift + R) the Apps page.
+                    </div>
+
+                    <button 
+                        name="action_apply_custom_app_icons" 
+                        type="object" 
+                        string="Apply Custom Icons to Each App (Dashboard Tiles)" 
+                        class="btn btn-primary mt-3"/>
+                    
+                    <p class="text-muted mt-2">
+                        This sets different icons per app/module in the Apps menu/dashboard.<br/>
+                        Only affects root app menus (the tiles you see).
+                    </p>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
