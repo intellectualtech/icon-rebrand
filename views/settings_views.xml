@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="res_config_settings_view_form_inherit_rebrand" model="ir.ui.view">
-        <field name="name">res.config.settings.inherit.rebrand</field>
-        <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div class="app_settings_block" string="Rebrand Icons">
-                    <h2>Rebrand App Icons (Odoo 19)</h2>
-                    <p>Your icons are in: <code>static/icons/</code></p>
-                    <button 
-                        name="action_apply_custom_app_icons" 
-                        type="object" 
-                        string="Apply Custom Icons to All Apps" 
-                        class="oe_highlight"/>
-                </div>
-            </xpath>
-        </field>
+    <record id="action_icon_rebrand_settings" model="ir.actions.act_window">
+        <field name="name">Rebrand Icons</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'icon_rebrand'}</field>
     </record>
+
+    <menuitem id="menu_icon_rebrand_root"
+              name="Rebrand Icons"
+              parent="base.menu_custom"
+              sequence="95"
+              action="action_icon_rebrand_settings"
+              groups="base.group_system"/>
 </odoo>
